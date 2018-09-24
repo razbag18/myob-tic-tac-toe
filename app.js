@@ -16,7 +16,7 @@ var winMessage = function(){
 }
 
 var play = function(){
-  console.log('             ~ ~ Tic-Tac-Toe Console Game ~ ~' + '\n' + '\n' + 'To play, type in playerTurn(position).' + '\n' + 'Make sure position is a number between 0-8. First player is assigned as "X".' + '\n' + '\n' + 'Here are the playing square positions...' + '\n' + '\n' + exampleBoard)
+  console.log('             ~ ~ Tic-Tac-Toe Console Game ~ ~' + '\n' + '\n' + 'To play, type in playerTurn(position), eg playerTurn(4).' + '\n' + 'Make sure position is a number between 0-8. First player is assigned as "X".' + '\n' + '\n' + 'Here are the playing square positions...' + '\n' + '\n' + exampleBoard)
 }
 
 play()
