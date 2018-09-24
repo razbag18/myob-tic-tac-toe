@@ -42,14 +42,10 @@ var playerTurn = function(position){
   checkWin()
   
   turnCount ++
-  if (turnCount === 9){
-    console.log(board)
-    console.log(" XX ~ ~ DRAW ~ ~ OO")
-    resetBoard()} 
-    else {
-      console.log(board)
-  }
+
+  turnCount === 9 ? console.log(board) + console.log(" XX ~ ~ DRAW ~ ~ OO" ) + resetBoard() : console.log(board);
 }
+
 
 var checkHorizitally = function(){
   if (playingSquare[0] === "X" && playingSquare[1] === "X" && playingSquare[2] === "X" || playingSquare[0] === "O" && playingSquare[1] === "O" && playingSquare[2] === "O"){

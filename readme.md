@@ -15,6 +15,8 @@ How to Play
 
 * If there is a draw the game board will automatically reset.
 
+* Players can't put a marker in a square that is already taken by another players marker.
+
 Game Rules
 ---------
 
