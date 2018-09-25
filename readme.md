@@ -3,7 +3,7 @@
 How to Play 
 -----------
 
-* Created with Javascript, open the index.html file and then hit OPTION + COMMAND + J to open the console on Mac, or CTRL + SHIFT + K on Windows. 
+* Created with Javascript, open the index.html file and then hit OPTION + COMMAND + J to open the console on Mac, or CTRL + SHIFT + J on Windows. 
 
 * Game will automatially load in the console. First player is assigned as X, second player O. 
 

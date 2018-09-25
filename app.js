@@ -4,12 +4,14 @@ var playingSquare = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
 var turnCount = 0
 var inPlay = true
 
-var exampleRow1 = boardGuide[0] + ' | ' + boardGuide[1] + ' | '+ boardGuide[2]
-var exampleRow2 = boardGuide[3] + ' | ' + boardGuide[4] + ' | '+ boardGuide[5]
-var exampleRow3 = boardGuide[6] + ' | ' + boardGuide[7] + ' | '+ boardGuide[8]
-var boardLine = '--|---|--'
+boardGuide.slice(0,2)
 
-var exampleBoard = exampleRow1 +'\n' + boardLine + '\n' + exampleRow2 + '\n' + boardLine + '\n' + exampleRow3
+var exampleRow1 = boardGuide.slice(0,3).join(" | ") 
+var exampleRow2 = boardGuide.slice(3,6).join(" | ")
+var exampleRow3 = boardGuide.slice(6,9).join(" | ")
+var boardLine = "\n--|---|--\n"
+
+var exampleBoard = exampleRow1 + boardLine+ exampleRow2 + boardLine + exampleRow3
 
 var winMessage = function(){
   return console.log("~ * ~ WINNER!! ~ * ~" + '\n' + 'To play again, type resetBoard()')
@@ -22,30 +24,34 @@ var play = function(){
 play()
 
 var playerTurn = function(position){  
-  if (inPlay === true && playingSquare[position] === ' ' && playingSquare[position] >=0 || playingSquare[position] <=8){
+  if (inPlay && playingSquare[position] === ' ' && playingSquare[position] >=0 || playingSquare[position] <=8){
     if (turnCount % 2 === 0){
+      turnCount ++
       playingSquare[position] = "X"
+      checkWin()
     } else {
+      turnCount ++
       playingSquare[position] = "O"
+      checkWin()
     }
   } else {
-    console.log("Position not valid")
-    turnCount --
+    console.log("Position not valid")  
   }
   
-  var row1 = playingSquare[0] + ' | ' + playingSquare[1] + ' | ' + playingSquare[2]
-  var row2 = playingSquare[3] + ' | ' + playingSquare[4] + ' | ' + playingSquare[5]
-  var row3 = playingSquare[6] + ' | ' + playingSquare[7] + ' | ' + playingSquare[8]
+  var row1 = playingSquare.slice(0,3).join(" | ") 
+  var row2 = playingSquare.slice(3,6).join(" | ")
+  var row3 = playingSquare.slice(6,9).join(" | ")
 
-  var board = row1 +'\n' + boardLine + '\n' + row2 + '\n' + boardLine + '\n' + row3
+  var board = row1 + boardLine + row2 + boardLine + row3
 
-  checkWin()
-  
-  turnCount ++
-
-  turnCount === 9 ? console.log(board) + console.log(" XX ~ ~ DRAW ~ ~ OO" ) + resetBoard() : console.log(board);
+  if (turnCount === 9){
+    console.log(board)
+    console.log(" XX ~ ~ DRAW ~ ~ OO" )
+    resetBoard()
+  } else {
+    console.log(board)
+  }
 }
-
 
 var checkHorizitally = function(){
   if (playingSquare[0] === "X" && playingSquare[1] === "X" && playingSquare[2] === "X" || playingSquare[0] === "O" && playingSquare[1] === "O" && playingSquare[2] === "O"){
